@@ -1,0 +1,44 @@
+{
+  "consumer": {
+    "name": "personConsumer"
+  },
+  "provider": {
+    "name": "personProvider"
+  },
+  "interactions": [
+    {
+      "description": "A GET request to /user/{user_id}",
+      "providerState": "User 1 exists",
+      "request": {
+        "method": "GET",
+        "path": "/person/1",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "first_name": "Mark",
+          "last_name": "Bradley"
+        },
+        "matchingRules": {
+          "$.body.first_name": {
+            "match": "type"
+          },
+          "$.body.last_name": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
